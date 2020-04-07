@@ -24,7 +24,7 @@ app.get('/location', (request, response) => {
     }
   });
 
-// app.use('*', notFoundHandler);
+app.use('*', notFoundHandler);
 function Location(city, geoData) {
   this.search_query = city;
   this.formatted_query = geoData[0].display_name;
