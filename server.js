@@ -40,7 +40,7 @@ app.get('/weather', (Request, Response) => {
     const weatherData = require('./data/weather.json');
     const cityWeather = Request.query.city;
     arrWeather = [];
-    weatherData.data.forEach(val => {
+    weatherData.data.map(val => {
         new Allweather(val)
     });
     Response.send(arrWeather)
@@ -50,7 +50,7 @@ app.get('/weather', (Request, Response) => {
 
 function Allweather(val) {
     this.forecast = val.weather.description,
-    this.time = val.valid_date
+    this.time = new Date (val.valid_date).toDateString();
     arrWeather.push(this)
 }
     
@@ -68,10 +68,10 @@ function Allweather(val) {
   app.listen(PORT, () => console.log(`the server is up and running on ${PORT}`));
 
   
-  // function notFoundHandler(request, response) {
-  //   response.status(404).send('NOT FOUND!!');
-  // }
+  function notFoundHandler(request, response) {
+    response.status(404).send('NOT FOUND!!');
+  }
   function errorHandler(error, request, response) {
     response.status(500).send(error);
   }
-  // app.use('*', notFoundHandler);
+  app.use('*', notFoundHandler);

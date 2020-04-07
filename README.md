@@ -3,8 +3,8 @@
 
 # Project Name
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Author**: Thaer Mousa
+**Version**: 1.03.2 
 
 ## Overview
 
